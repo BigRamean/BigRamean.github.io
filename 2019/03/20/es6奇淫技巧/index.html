@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://github.com/BigRamean">
   <title>es6奇淫技巧 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="promisse1234new Promise(function(resolve,reject)&amp;#123;	jscode..	resolve(可以在.then后用的结果)&amp;#125;) 这样子处理接口后，就可以同步操作请求后从接口返回的值 数组去重1let newarr = [...new Set(arr)] map遍历map((item)=&amp;gt;{return 对item的操作})处理数组返">
+  <meta name="description" content="promisse1234new Promise(function(resolve,reject)&amp;#123;	jscode..	resolve(可以在.then后用的结果)&amp;#125;) 这样子处理接口后，就可以同步操作请求后从接口返回的值 数组去重1let newarr = [...new Set(arr)]">
 <meta name="keywords" content="随笔">
 <meta property="og:type" content="article">
 <meta property="og:title" content="es6奇淫技巧">
 <meta property="og:url" content="https://github.com/BigRamean/2019/03/20/es6奇淫技巧/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="promisse1234new Promise(function(resolve,reject)&amp;#123;	jscode..	resolve(可以在.then后用的结果)&amp;#125;) 这样子处理接口后，就可以同步操作请求后从接口返回的值 数组去重1let newarr = [...new Set(arr)] map遍历map((item)=&amp;gt;{return 对item的操作})处理数组返">
+<meta property="og:description" content="promisse1234new Promise(function(resolve,reject)&amp;#123;	jscode..	resolve(可以在.then后用的结果)&amp;#125;) 这样子处理接口后，就可以同步操作请求后从接口返回的值 数组去重1let newarr = [...new Set(arr)]">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-11T11:53:22.968Z">
+<meta property="og:updated_time" content="2019-04-11T12:00:30.007Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="es6奇淫技巧">
-<meta name="twitter:description" content="promisse1234new Promise(function(resolve,reject)&amp;#123;	jscode..	resolve(可以在.then后用的结果)&amp;#125;) 这样子处理接口后，就可以同步操作请求后从接口返回的值 数组去重1let newarr = [...new Set(arr)] map遍历map((item)=&amp;gt;{return 对item的操作})处理数组返">
+<meta name="twitter:description" content="promisse1234new Promise(function(resolve,reject)&amp;#123;	jscode..	resolve(可以在.then后用的结果)&amp;#125;) 这样子处理接口后，就可以同步操作请求后从接口返回的值 数组去重1let newarr = [...new Set(arr)]">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -180,6 +180,7 @@
         <h1 id="promisse"><a href="#promisse" class="headerlink" title="promisse"></a>promisse</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">new Promise(function(resolve,reject)&#123;</span><br><span class="line">	jscode..</span><br><span class="line">	resolve(可以在.then后用的结果)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p>这样子处理接口后，就可以同步操作请求后从接口返回的值</p>
 <h1 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let newarr = [...new Set(arr)]</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h1 id="map遍历"><a href="#map遍历" class="headerlink" title="map遍历"></a>map遍历</h1><p>map((item)=&gt;{return 对item的操作})<br>处理数组返回新数组，不能终止</p>
 <h1 id="扩展运算符…"><a href="#扩展运算符…" class="headerlink" title="扩展运算符…"></a>扩展运算符…</h1><p>前言：公司用框架很多时候就会用到，webpack打包后会把它转回es5，放心大胆的去用吧</p>
 <p>基本用法</p>

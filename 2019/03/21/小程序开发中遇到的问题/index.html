@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://github.com/BigRamean">
   <title>小程序bug与难点总结 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="获取form表单初始值提交数据   e.detail.value  微信快速登录 wx.login拿到五分钟临时码code code传给后台做处理拿到openid openid（可能还会用到session_key）后台做处理从微信服务器拿到token值 用token值来登录  ​     小程序生命周期和小程序页面生命周期不一样一个是App()，一个是Page() 获取全局参数1234let ap">
+  <meta name="description" content="获取form表单初始值提交数据 &amp;lt;form bindsubmit=&amp;quot;formSubmit&amp;quot;&amp;gt; &amp;lt;button form-type=&amp;quot;submit&amp;quot;&amp;gt; e.detail.value  微信快速登录 wx.login拿到五分钟临时码code code传给后台做处理拿到openid openid（可能还会用到session_key）后台做处">
 <meta name="keywords" content="随笔">
 <meta property="og:type" content="article">
 <meta property="og:title" content="小程序bug与难点总结">
 <meta property="og:url" content="https://github.com/BigRamean/2019/03/21/小程序开发中遇到的问题/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="获取form表单初始值提交数据   e.detail.value  微信快速登录 wx.login拿到五分钟临时码code code传给后台做处理拿到openid openid（可能还会用到session_key）后台做处理从微信服务器拿到token值 用token值来登录  ​     小程序生命周期和小程序页面生命周期不一样一个是App()，一个是Page() 获取全局参数1234let ap">
+<meta property="og:description" content="获取form表单初始值提交数据 &amp;lt;form bindsubmit=&amp;quot;formSubmit&amp;quot;&amp;gt; &amp;lt;button form-type=&amp;quot;submit&amp;quot;&amp;gt; e.detail.value  微信快速登录 wx.login拿到五分钟临时码code code传给后台做处理拿到openid openid（可能还会用到session_key）后台做处">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-11T11:53:25.726Z">
+<meta property="og:updated_time" content="2019-04-11T12:00:05.968Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="小程序bug与难点总结">
-<meta name="twitter:description" content="获取form表单初始值提交数据   e.detail.value  微信快速登录 wx.login拿到五分钟临时码code code传给后台做处理拿到openid openid（可能还会用到session_key）后台做处理从微信服务器拿到token值 用token值来登录  ​     小程序生命周期和小程序页面生命周期不一样一个是App()，一个是Page() 获取全局参数1234let ap">
+<meta name="twitter:description" content="获取form表单初始值提交数据 &amp;lt;form bindsubmit=&amp;quot;formSubmit&amp;quot;&amp;gt; &amp;lt;button form-type=&amp;quot;submit&amp;quot;&amp;gt; e.detail.value  微信快速登录 wx.login拿到五分钟临时码code code传给后台做处理拿到openid openid（可能还会用到session_key）后台做处">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -178,17 +178,18 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="获取form表单初始值提交数据"><a href="#获取form表单初始值提交数据" class="headerlink" title="获取form表单初始值提交数据"></a>获取form表单初始值提交数据</h1><ul>
-<li><form bindsubmit="formSubmit"></form></li>
-<li><button form-type="submit"></button></li>
+<li><code>&lt;form bindsubmit=&quot;formSubmit&quot;&gt;</code></li>
+<li><code>&lt;button form-type=&quot;submit&quot;&gt;</code></li>
 <li>e.detail.value</li>
 </ul>
 <h1 id="微信快速登录"><a href="#微信快速登录" class="headerlink" title="微信快速登录"></a>微信快速登录</h1><ul>
 <li>wx.login拿到五分钟临时码code</li>
 <li>code传给后台做处理拿到openid</li>
 <li>openid（可能还会用到session_key）后台做处理从微信服务器拿到token值</li>
-<li>用token值来登录</li>
+<li><p>用token值来登录</p>
+  <a id="more"></a>    
+</li>
 </ul>
-<p>​    </p>
 <h1 id="小程序生命周期和小程序页面生命周期不一样"><a href="#小程序生命周期和小程序页面生命周期不一样" class="headerlink" title="小程序生命周期和小程序页面生命周期不一样"></a>小程序生命周期和小程序页面生命周期不一样</h1><p>一个是App()，一个是Page()</p>
 <h1 id="获取全局参数"><a href="#获取全局参数" class="headerlink" title="获取全局参数"></a>获取全局参数</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let app = getApp()</span><br><span class="line">this.setData(&#123;</span><br><span class="line">	data里的xxx:app.globalData.全局的xxx</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <h1 id="this-setData不能乱用"><a href="#this-setData不能乱用" class="headerlink" title="this.setData不能乱用"></a>this.setData不能乱用</h1><p>这样会降低小程序的性能</p>

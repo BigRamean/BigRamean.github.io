@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="处理跨域 方法一：叫后台帮忙更改header  方法二：使用jQuery提供的jsonp  方法三：打开config里的index.js，在proxyTable中设置反向代理 123456789proxyTable: &amp;#123;   &amp;apos;/api&amp;apos;: &amp;#123;  //使用&amp;quot;/api&amp;quot;来代替&amp;quot;http://f.apiplus.c&amp;quot;">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-11T11:53:20.953Z">
+<meta property="og:updated_time" content="2019-04-11T12:00:24.997Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue开发奇淫技巧">
 <meta name="twitter:description" content="处理跨域 方法一：叫后台帮忙更改header  方法二：使用jQuery提供的jsonp  方法三：打开config里的index.js，在proxyTable中设置反向代理 123456789proxyTable: &amp;#123;   &amp;apos;/api&amp;apos;: &amp;#123;  //使用&amp;quot;/api&amp;quot;来代替&amp;quot;http://f.apiplus.c&amp;quot;">
@@ -186,7 +186,9 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">proxyTable: &#123; </span><br><span class="line">  &apos;/api&apos;: &#123;  //使用&quot;/api&quot;来代替&quot;http://f.apiplus.c&quot; </span><br><span class="line">    target: &apos;http://f.apiplus.cn&apos;, //源地址 </span><br><span class="line">    changeOrigin: true, //改变源 </span><br><span class="line">    pathRewrite: &#123; </span><br><span class="line">      &apos;^/api&apos;: &apos;http://f.apiplus.cn&apos; //路径重写 </span><br><span class="line">      &#125; </span><br><span class="line">  &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h1 id="DOM操作"><a href="#DOM操作" class="headerlink" title="DOM操作"></a>DOM操作</h1><p>关键字: ref、$refs, 解决操作dom或者获取属性的问题<br>使用步骤<br>    在要操作的dom或elementui节点上加上属性 ref=”xxx”<br>    在事件的函数/方法里打印 this.$refs.xxx 悬停鼠标看具体的dom在哪里<br>    $this.$refs.xxx.$el/$refs.style = “width: 50%;;;;;”</p>
+<h1 id="DOM操作"><a href="#DOM操作" class="headerlink" title="DOM操作"></a>DOM操作</h1><p>关键字: ref、$refs, 解决操作dom或者获取属性的问题 </p>
+<a id="more"></a>
+<p>使用步骤<br>    在要操作的dom或elementui节点上加上属性 ref=”xxx”<br>    在事件的函数/方法里打印 this.$refs.xxx 悬停鼠标看具体的dom在哪里<br>    $this.$refs.xxx.$el/$refs.style = “width: 50%;;;;;”</p>
 <h1 id="JS新方法classList"><a href="#JS新方法classList" class="headerlink" title="JS新方法classList"></a>JS新方法classList</h1><p>类似jq的addClass，removeClass<br>    add(‘类名1’,’2’,’3’)、remove(‘类名’)<br>    主要结合$refs来用</p>
 
       
