@@ -6,20 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://github.com/BigRamean">
-  <title>module.exports,exports,export和export default,import与require区别与联系 | Hexo</title>
+  <title>webpack总结 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="首先搞清楚一个基本问题： [module.exports和exports是属于node.js的CommonJS模块规范！ export和export default是属于ES6语法！ 同样import和require分别属于ES6和CommonJS！">
+  <meta name="description" content="开发版本提示小技巧在config.js文件夹里自己在全局新建一个 1234const version = &amp;apos;3.1.3&amp;apos;module.exports = &amp;#123;    version&amp;#125; webpack中Eslint对代码要求简化没有内容填充的标签/组件要写成单标签，如 模块化语法 导入  ​        到当前空间全局            import ‘我">
 <meta name="keywords" content="随笔">
 <meta property="og:type" content="article">
-<meta property="og:title" content="module.exports,exports,export和export default,import与require区别与联系">
-<meta property="og:url" content="https://github.com/BigRamean/2018/08/06/export_ok/index.html">
+<meta property="og:title" content="webpack总结">
+<meta property="og:url" content="https://github.com/BigRamean/2019/03/17/npm打包输出问题/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="首先搞清楚一个基本问题： [module.exports和exports是属于node.js的CommonJS模块规范！ export和export default是属于ES6语法！ 同样import和require分别属于ES6和CommonJS！">
+<meta property="og:description" content="开发版本提示小技巧在config.js文件夹里自己在全局新建一个 1234const version = &amp;apos;3.1.3&amp;apos;module.exports = &amp;#123;    version&amp;#125; webpack中Eslint对代码要求简化没有内容填充的标签/组件要写成单标签，如 模块化语法 导入  ​        到当前空间全局            import ‘我">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-11T06:50:22.211Z">
+<meta property="og:image" content="https://github.com/BigRamean/2019/03/17/assets/img/loginback.png">
+<meta property="og:image" content="https://github.com/BigRamean/2019/03/static/img/loginback.png">
+<meta property="og:image" content="https://github.com/BigRamean/2019/03/17/npm打包输出问题/static/img/loginback.png">
+<meta property="og:updated_time" content="2019-04-11T11:53:18.808Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="module.exports,exports,export和export default,import与require区别与联系">
-<meta name="twitter:description" content="首先搞清楚一个基本问题： [module.exports和exports是属于node.js的CommonJS模块规范！ export和export default是属于ES6语法！ 同样import和require分别属于ES6和CommonJS！">
+<meta name="twitter:title" content="webpack总结">
+<meta name="twitter:description" content="开发版本提示小技巧在config.js文件夹里自己在全局新建一个 1234const version = &amp;apos;3.1.3&amp;apos;module.exports = &amp;#123;    version&amp;#125; webpack中Eslint对代码要求简化没有内容填充的标签/组件要写成单标签，如 模块化语法 导入  ​        到当前空间全局            import ‘我">
+<meta name="twitter:image" content="https://github.com/BigRamean/2019/03/17/assets/img/loginback.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -157,61 +161,81 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="p-export_ok" class="article article-type-p " itemscope itemprop="blogPost">
+            <article id="p-npm打包输出问题" class="article article-type-p " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      module.exports,exports,export和export default,import与require区别与联系
+      webpack总结
     </h1>
   
 
         
-        <a href="/2018/08/06/export_ok/" class="archive-article-date">
-  	<time datetime="2018-08-06T14:29:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-06</time>
+        <a href="/2019/03/17/npm打包输出问题/" class="archive-article-date">
+  	<time datetime="2019-03-17T14:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-17</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="首先搞清楚一个基本问题："><a href="#首先搞清楚一个基本问题：" class="headerlink" title="首先搞清楚一个基本问题："></a>首先搞清楚一个基本问题：</h3><ol>
-<li>[module.exports和exports是属于node.js的CommonJS模块规范！</li>
-<li>export和export default是属于ES6语法！</li>
-<li>同样import和require分别属于ES6和CommonJS！<a id="more"></a>
+        <h1 id="开发版本提示小技巧"><a href="#开发版本提示小技巧" class="headerlink" title="开发版本提示小技巧"></a>开发版本提示小技巧</h1><p>在config.js文件夹里自己在全局新建一个</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const version = &apos;3.1.3&apos;</span><br><span class="line">module.exports = &#123;</span><br><span class="line">    version</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="webpack中Eslint对代码要求简化"><a href="#webpack中Eslint对代码要求简化" class="headerlink" title="webpack中Eslint对代码要求简化"></a>webpack中Eslint对代码要求简化</h1><p>没有内容填充的标签/组件要写成单标签，如<image></image></p>
+<h1 id="模块化语法"><a href="#模块化语法" class="headerlink" title="模块化语法"></a>模块化语法</h1><ul>
+<li>导入</li>
+</ul>
+<p>​        到当前空间全局<br>            import ‘我是路径’<br>        导入并重新命名<br>            import xx as xx from</p>
+<ul>
+<li>导出</li>
+</ul>
+<p>​        单个变量<br>            export default xxx<br>        多个变量<br>            export {a, b, c, xxx}</p>
+<h1 id="npm-run-build后打开主页面报错"><a href="#npm-run-build后打开主页面报错" class="headerlink" title="npm run build后打开主页面报错"></a>npm run build后打开主页面报错</h1><ul>
+<li><p>方法一：用vscode的go live打开</p>
 </li>
-</ol>
-<h3 id="知道属于哪一块的语法了还有一个明确点："><a href="#知道属于哪一块的语法了还有一个明确点：" class="headerlink" title="知道属于哪一块的语法了还有一个明确点："></a>知道属于哪一块的语法了还有一个明确点：</h3><ol>
-<li>module.exports和exports、export和export default都是导出模块；</li>
-<li>import和require则是导入模块。</li>
-</ol>
-<p>&emsp;&emsp;所以现在就不要弄混了，module.exports导出对应require导入，export导出对应import导入。</p>
-<p>&emsp;&emsp;喂！等等，怎么才说到module.exports导出对应require导入，export导出对应import导入，那还有exports和export default呢！？那我们继续。</p>
-<h3 id="module-exports和exports的区别与联系"><a href="#module-exports和exports的区别与联系" class="headerlink" title="module.exports和exports的区别与联系"></a>module.exports和exports的区别与联系</h3><p>&emsp;&emsp;讲到这里就不得不稍微提一下模块化：</p>
-<p>Node应用由模块组成，采用CommonJS模块规范。</p>
-<p>&emsp;&emsp;根据这个规范，每个文件就是一个模块，有自己的作用域。在一个文件里面定义的变量、函数、类，都是私有的，对其他文件不可见。</p>
-<p>&emsp;&emsp;CommonJS规范规定，每个模块内部，module变量代表当前模块。这个变量是一个对象，它的exports属性（即module.exports）是对外的接口。加载某个模块，其实是加载该模块的module.exports属性。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">var</span> addX = <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> value + x;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">module</span>.exports.x = x;</span><br><span class="line"><span class="built_in">module</span>.exports.addX = addX;</span><br></pre></td></tr></table></figure></p>
-<p>上面代码通过module.exports输出变量x和函数addX。</p>
-<p>require方法用于加载模块。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> example = <span class="built_in">require</span>(<span class="string">'./example.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(example.x); <span class="comment">// 5</span></span><br><span class="line"><span class="built_in">console</span>.log(example.addX(<span class="number">1</span>)); <span class="comment">// 6</span></span><br></pre></td></tr></table></figure></p>
-<p>看了刚刚这段commonjs规范上面的介绍可以知道以下区别与联系：</p>
-<ol>
-<li>module.exports 初始值为一个空对象 {}</li>
-<li>exports变量是指向module.exports</li>
-<li>加载模块实际是加载该模块的module.exports。这等同在每个模块头部，有一行这样的命令:<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> exports = <span class="built_in">module</span>.exports;</span><br></pre></td></tr></table></figure>
+<li><p>方法二：</p>
+<ul>
+<li><p>Failed to load resource: net::ERR_FILE_NOT_FOUND或者vue dist文件下的index.html没显示</p>
+<p>vue-cli  npm run dev 可以看到，但是通过dist文件下的index.html直接打开没显示，没看到  </p>
+<p>知乎上：webpack.prod.conf.js 中output添加参数publicPath:’./‘</p>
+<p>具体：</p>
+<p>在webpack.base.conf.js里</p>
+<p>publicPath: process.env.NODE_ENV === ‘production’</p>
+<pre><code>? &apos;./&apos; +config.build.assetsPublicPath
+: &apos;./&apos; + config.dev.assetsPublicPath
+</code></pre></li>
+<li><p>vue的图片路径，和背景图片路径打包后错误解决</p>
+<p>1.找到 config-&gt;index.js里面，修改为 assetsPublicPath: ‘./‘,</p>
+<p>2.找到 build-&gt;utils.js,在</p>
+<p>if(options.extract){</p>
+<p>​    return ExtractTextPlugin.extract({</p>
+<p>​        里面加入一句-&gt; publicPath:’../../’, </p>
+<pre><code>})
+</code></pre><p>}</p>
+<p>3.配置修改完成，接下来，使用有两种方式，这里一般和文件结构有关，下面是我的文件结构下的使用（这一步也可以不做）    </p>
+<ul>
+<li><p>图片资源放在 assets-&gt;img文件夹下面</p>
+<p>img标签引入图片</p>
+<p><img src="../assets/img/loginback.png" class="test-img"></p>
+<p>css使用图片</p>
+<p>background: url(‘../assets/img/loginback.png’) no-repeat top left ;</p>
 </li>
-</ol>
-<p>&emsp;&emsp;于是我们可以直接在 exports 对象上添加方法，表示对外输出的接口，如同在module.exports上添加一样。注意，不能直接将exports变量指向一个值，因为这样等于切断了exports与module.exports的联系。</p>
-<h3 id="export和export-default的区别与联系"><a href="#export和export-default的区别与联系" class="headerlink" title="export和export default的区别与联系"></a>export和export default的区别与联系</h3><p>&emsp;&emsp;模块功能主要由：export和import构成。export导出模块的对外接口，import命令导入其他模块暴露的接口。</p>
-<p>&emsp;&emsp;export其实和export default就是写法上面有点差别，一个是导出一个个单独接口，一个是默认导出一个整体接口。使用import命令的时候，用户需要知道所要加载的变量名或函数名，否则无法加载。这里就有一个简单写法不用去知道有哪些具体的暴露接口名，就用export default命令，为模块指定默认输出。</p>
-<p>export可以这样写<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// testA.js</span></span><br><span class="line"><span class="keyword">var</span> f = <span class="string">'Miel'</span>;</span><br><span class="line"><span class="keyword">var</span> name = <span class="string">'Jack'</span>;</span><br><span class="line"><span class="keyword">var</span> data= <span class="number">1988</span>;</span><br><span class="line"><span class="keyword">export</span> &#123;f, name, data&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>使用export命令定义了模块的对外接口以后，其他 JS 文件就可以通过import命令加载这个模块。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="keyword">import</span> &#123;f, name, data&#125; <span class="keyword">from</span> <span class="string">'./testA'</span>;</span><br></pre></td></tr></table></figure></p>
-<p>export default可以这样写<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// export-default.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'foo'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 或者写成</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'foo'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> foo;</span><br><span class="line"><span class="comment">// import-default.js</span></span><br><span class="line"><span class="keyword">import</span> customName <span class="keyword">from</span> <span class="string">'./export-default'</span>;</span><br><span class="line">customName(); <span class="comment">// 'foo'</span></span><br></pre></td></tr></table></figure></p>
-<p>下面比较一下export default和export 输出。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 第一组</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">car</span>(<span class="params"></span>) </span>&#123; <span class="comment">// 输出</span></span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> car <span class="keyword">from</span> <span class="string">'car'</span>; <span class="comment">// 输入</span></span><br></pre></td></tr></table></figure></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 第二组</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">car2</span>(<span class="params"></span>) </span>&#123; <span class="comment">// 输出</span></span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123;car2&#125; <span class="keyword">from</span> <span class="string">'car2'</span>; <span class="comment">// 输入</span></span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;可以看到第一组是使用export default，import语句不需要使用大括号；第二组使用export，对应的import语句需要使用大括号，一个模块只能有一个默认输出，所以export default只能使用一次。</p>
-<h3 id="import和require的区别与联系"><a href="#import和require的区别与联系" class="headerlink" title="import和require的区别与联系"></a>import和require的区别与联系</h3><p>&emsp;&emsp;看了上面其实已经清楚了，import和require是分别属于ES6和CommonJS的两种导入模块的语法而已。:smile: :+1: :clap: </p>
+<li><p>图片资源放在static-&gt;img文件夹下面</p>
+<p>img标签引入图片</p>
+<p><img src="../../static/img/loginback.png" class="test-img"><br><img src="static/img/loginback.png" class="test-img"></p>
+<p>css使用图片</p>
+<p>background: url(‘../../static/img/loginback.png’) no-repeat top left ;</p>
+</li>
+<li><p>如果放在其他目录，直接通过data引入，则需要如下引入</p>
+<p>require(‘../assets/launch.png’) 或者 import logo from ‘../assets/logo.png’</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
       
 
@@ -302,7 +326,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/BigRamean/2018/08/06/export_ok/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/BigRamean/2019/03/17/npm打包输出问题/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -316,18 +340,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/03/15/项目开发总结/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/03/18/git笔记/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          项目开发总结
+          git使用总结
         
       </div>
     </a>
   
   
-    <a href="/2018/08/06/webpack_ok/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Vue and webpack</div>
+    <a href="/2019/03/16/vue开发奇淫技巧/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">vue开发奇淫技巧</div>
       <i class="icon-circle-right"></i>
     </a>
   

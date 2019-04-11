@@ -6,20 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://github.com/BigRamean">
-  <title>module.exports,exports,export和export default,import与require区别与联系 | Hexo</title>
+  <title>Archives: 2019/3 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="首先搞清楚一个基本问题： [module.exports和exports是属于node.js的CommonJS模块规范！ export和export default是属于ES6语法！ 同样import和require分别属于ES6和CommonJS！">
-<meta name="keywords" content="随笔">
-<meta property="og:type" content="article">
-<meta property="og:title" content="module.exports,exports,export和export default,import与require区别与联系">
-<meta property="og:url" content="https://github.com/BigRamean/2018/08/06/export_ok/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://github.com/BigRamean/archives/2019/03/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="首先搞清楚一个基本问题： [module.exports和exports是属于node.js的CommonJS模块规范！ export和export default是属于ES6语法！ 同样import和require分别属于ES6和CommonJS！">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-11T06:50:22.211Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="module.exports,exports,export和export default,import与require区别与联系">
-<meta name="twitter:description" content="首先搞清楚一个基本问题： [module.exports和exports是属于node.js的CommonJS模块规范！ export和export default是属于ES6语法！ 同样import和require分别属于ES6和CommonJS！">
+<meta name="twitter:title" content="Hexo">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -157,90 +152,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="p-export_ok" class="article article-type-p " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      module.exports,exports,export和export default,import与require区别与联系
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-p">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/03/21/小程序开发中遇到的问题/" class="archive-article-date">
+  	<time datetime="2019-03-21T14:26:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-21</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/03/21/小程序开发中遇到的问题/">小程序bug与难点总结</a>
     </h1>
   
 
-        
-        <a href="/2018/08/06/export_ok/" class="archive-article-date">
-  	<time datetime="2018-08-06T14:29:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="首先搞清楚一个基本问题："><a href="#首先搞清楚一个基本问题：" class="headerlink" title="首先搞清楚一个基本问题："></a>首先搞清楚一个基本问题：</h3><ol>
-<li>[module.exports和exports是属于node.js的CommonJS模块规范！</li>
-<li>export和export default是属于ES6语法！</li>
-<li>同样import和require分别属于ES6和CommonJS！<a id="more"></a>
-</li>
-</ol>
-<h3 id="知道属于哪一块的语法了还有一个明确点："><a href="#知道属于哪一块的语法了还有一个明确点：" class="headerlink" title="知道属于哪一块的语法了还有一个明确点："></a>知道属于哪一块的语法了还有一个明确点：</h3><ol>
-<li>module.exports和exports、export和export default都是导出模块；</li>
-<li>import和require则是导入模块。</li>
-</ol>
-<p>&emsp;&emsp;所以现在就不要弄混了，module.exports导出对应require导入，export导出对应import导入。</p>
-<p>&emsp;&emsp;喂！等等，怎么才说到module.exports导出对应require导入，export导出对应import导入，那还有exports和export default呢！？那我们继续。</p>
-<h3 id="module-exports和exports的区别与联系"><a href="#module-exports和exports的区别与联系" class="headerlink" title="module.exports和exports的区别与联系"></a>module.exports和exports的区别与联系</h3><p>&emsp;&emsp;讲到这里就不得不稍微提一下模块化：</p>
-<p>Node应用由模块组成，采用CommonJS模块规范。</p>
-<p>&emsp;&emsp;根据这个规范，每个文件就是一个模块，有自己的作用域。在一个文件里面定义的变量、函数、类，都是私有的，对其他文件不可见。</p>
-<p>&emsp;&emsp;CommonJS规范规定，每个模块内部，module变量代表当前模块。这个变量是一个对象，它的exports属性（即module.exports）是对外的接口。加载某个模块，其实是加载该模块的module.exports属性。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">var</span> addX = <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> value + x;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">module</span>.exports.x = x;</span><br><span class="line"><span class="built_in">module</span>.exports.addX = addX;</span><br></pre></td></tr></table></figure></p>
-<p>上面代码通过module.exports输出变量x和函数addX。</p>
-<p>require方法用于加载模块。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> example = <span class="built_in">require</span>(<span class="string">'./example.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(example.x); <span class="comment">// 5</span></span><br><span class="line"><span class="built_in">console</span>.log(example.addX(<span class="number">1</span>)); <span class="comment">// 6</span></span><br></pre></td></tr></table></figure></p>
-<p>看了刚刚这段commonjs规范上面的介绍可以知道以下区别与联系：</p>
-<ol>
-<li>module.exports 初始值为一个空对象 {}</li>
-<li>exports变量是指向module.exports</li>
-<li>加载模块实际是加载该模块的module.exports。这等同在每个模块头部，有一行这样的命令:<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> exports = <span class="built_in">module</span>.exports;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>&emsp;&emsp;于是我们可以直接在 exports 对象上添加方法，表示对外输出的接口，如同在module.exports上添加一样。注意，不能直接将exports变量指向一个值，因为这样等于切断了exports与module.exports的联系。</p>
-<h3 id="export和export-default的区别与联系"><a href="#export和export-default的区别与联系" class="headerlink" title="export和export default的区别与联系"></a>export和export default的区别与联系</h3><p>&emsp;&emsp;模块功能主要由：export和import构成。export导出模块的对外接口，import命令导入其他模块暴露的接口。</p>
-<p>&emsp;&emsp;export其实和export default就是写法上面有点差别，一个是导出一个个单独接口，一个是默认导出一个整体接口。使用import命令的时候，用户需要知道所要加载的变量名或函数名，否则无法加载。这里就有一个简单写法不用去知道有哪些具体的暴露接口名，就用export default命令，为模块指定默认输出。</p>
-<p>export可以这样写<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// testA.js</span></span><br><span class="line"><span class="keyword">var</span> f = <span class="string">'Miel'</span>;</span><br><span class="line"><span class="keyword">var</span> name = <span class="string">'Jack'</span>;</span><br><span class="line"><span class="keyword">var</span> data= <span class="number">1988</span>;</span><br><span class="line"><span class="keyword">export</span> &#123;f, name, data&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>使用export命令定义了模块的对外接口以后，其他 JS 文件就可以通过import命令加载这个模块。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="keyword">import</span> &#123;f, name, data&#125; <span class="keyword">from</span> <span class="string">'./testA'</span>;</span><br></pre></td></tr></table></figure></p>
-<p>export default可以这样写<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// export-default.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'foo'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 或者写成</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'foo'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> foo;</span><br><span class="line"><span class="comment">// import-default.js</span></span><br><span class="line"><span class="keyword">import</span> customName <span class="keyword">from</span> <span class="string">'./export-default'</span>;</span><br><span class="line">customName(); <span class="comment">// 'foo'</span></span><br></pre></td></tr></table></figure></p>
-<p>下面比较一下export default和export 输出。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 第一组</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">car</span>(<span class="params"></span>) </span>&#123; <span class="comment">// 输出</span></span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> car <span class="keyword">from</span> <span class="string">'car'</span>; <span class="comment">// 输入</span></span><br></pre></td></tr></table></figure></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 第二组</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">car2</span>(<span class="params"></span>) </span>&#123; <span class="comment">// 输出</span></span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123;car2&#125; <span class="keyword">from</span> <span class="string">'car2'</span>; <span class="comment">// 输入</span></span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;可以看到第一组是使用export default，import语句不需要使用大括号；第二组使用export，对应的import语句需要使用大括号，一个模块只能有一个默认输出，所以export default只能使用一次。</p>
-<h3 id="import和require的区别与联系"><a href="#import和require的区别与联系" class="headerlink" title="import和require的区别与联系"></a>import和require的区别与联系</h3><p>&emsp;&emsp;看了上面其实已经清楚了，import和require是分别属于ES6和CommonJS的两种导入模块的语法而已。:smile: :+1: :clap: </p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -252,114 +193,174 @@
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/BigRamean/2018/08/06/export_ok/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
   
-<nav id="article-nav">
-  
-    <a href="/2019/03/15/项目开发总结/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          项目开发总结
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2018/08/06/webpack_ok/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Vue and webpack</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+    
+    
+    <article class="archive-article archive-type-p">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/03/20/es6奇淫技巧/" class="archive-article-date">
+  	<time datetime="2019-03-20T14:05:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-20</time>
+</a>
         </div>
-        
-        
-    </div>
-</aside>
-
-
-
+    	 
   
-  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/03/20/es6奇淫技巧/">es6奇淫技巧</a>
+    </h1>
   
 
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-p">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/03/18/git笔记/" class="archive-article-date">
+  	<time datetime="2019-03-18T14:17:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-18</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/03/18/git笔记/">git使用总结</a>
+    </h1>
   
 
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-p">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/03/17/npm打包输出问题/" class="archive-article-date">
+  	<time datetime="2019-03-17T14:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-17</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/03/17/npm打包输出问题/">webpack总结</a>
+    </h1>
   
 
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-p">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/03/16/vue开发奇淫技巧/" class="archive-article-date">
+  	<time datetime="2019-03-16T13:29:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-16</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/03/16/vue开发奇淫技巧/">vue开发奇淫技巧</a>
+    </h1>
+  
+
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+  
+    </div></section>
+  
+
+    
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/archives/2019/03/page/2/">2</a><a class="extend next" rel="next" href="/archives/2019/03/page/2/">Next &raquo;</a>
+    </nav>
   
 
 
@@ -383,8 +384,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
